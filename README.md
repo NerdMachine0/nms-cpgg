@@ -1,0 +1,1 @@
+This is a tool for the game No Man's Sky meant to help people explore more efficiently. Set the parameters to your liking and randomize the rest; Out pops random portal glyphs within the specified parameters. Currently a work in progress
