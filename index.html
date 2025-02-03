@@ -1,48 +1,256 @@
-<head>
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+    <head>
 
-    <title>NMS CPGG</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-
-        header {
-            font-family: sans-serif;
-            background:rgb(255, 255, 255);
-            margin-bottom: 10;
-            margin-top: 10;
-            position:top center;
-        }
-
-        body {
-            font-family: sans-serif;
-        }
-
-        footer{
-            font-family: sans-serif;
-            background:rgb(255, 255, 255);
-            margin-bottom: 10;
-            margin-top: 10;
-            position:bottom center;
-        }
-
-    </style>
-
-</head>
-
-<body>
-    <header>
-        <div class="container">
-
-            <h1>No Man's Sky Custom Portal Glyph Generator</h1>
+        <title>NMS CPGG</title>
     
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <style>
+    
+            header {
+                font-family: sans-serif;
+                background:rgb(40, 51, 56);
+                position: fixed;
+                left: 50%;
+                top: 50px;
+                transform: translate(-50%, -50%);
+                margin: 0 auto;
+            }
+    
+            body {
+                font-family: sans-serif;
+                color:rgb(255, 255, 255);
+                background:rgb(40, 51, 56);
+            }
+    
+            @font-face{
+                font-family:NMS-Glyphs-Mono;
+                src:url('assets/fonts/NMS-Glyphs-Mono.ttf');
+            }
+            
+            #menu{
+                font-family: sans-serif;
+                background:rgb(92, 137, 158);
+                position: fixed;
+                left: 25%;
+                right: 25%;
+                bottom: 33%;
+                top: 33%;
+                height:fit-content;
+                width:fit-content;
+                padding-top:20px;
+                padding-bottom:40px;
+                padding-left:40px;
+                padding-right:60px;
+                max-width:960px;
+                max-height:360px;
+                margin: 0 auto;
+            }
+
+            #menucontents{
+                font-family: sans-serif;
+                background:rgb(92, 137, 158);
+                position: relative;
+                max-width:fit-content;
+                max-height:fit-content;
+            }
+
+            #glyphbuttons{
+                display: flex;
+                flex-direction: row;
+                position: fixed;
+                left:50%;
+                top:25%;
+                transform: translate(-50%, -50%);
+                margin: 0 auto;
+            }
+
+            #glyphbutt1{
+                order: 1;
+                padding-left: 5px;
+                padding-right: 5px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            #glyphbutt2{
+                order: 2;
+                padding-left: 5px;
+                padding-right: 5px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            #glyphbutt3{
+                order: 3;
+                padding-left: 5px;
+                padding-right: 5px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            #glyphbutt4{
+                order: 4;
+                padding-left: 5px;
+                padding-right: 5px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            #glyphbutt{
+                font-family:NMS-Glyphs-Mono;
+                font-size:30px;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+
+            #glyphs{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-family:NMS-Glyphs-Mono;
+                background:rgb(40, 51, 56);
+                position: fixed;
+                left: 50%;
+                bottom: 10%;
+                width:500;
+                height:200px;
+                transform: translate(-50%, -50%);
+                margin: 0 auto;
+            }
+            
+            #buttons{
+                order: 1;
+
+                background:rgb(40, 51, 56);
+            }
+
+            #glyphtitle{
+                order: 2;
+
+                font-family: sans-serif;
+                background:rgb(40, 51, 56);
+            }
+
+            #glyphoutput{
+                order: 3;
+            }
+
+            footer{
+                font-family: sans-serif;
+                background:rgb(40, 51, 56);
+                position: fixed;
+                left: 50%;
+                bottom: 0px;
+                transform: translate(-50%, -50%);
+                margin: 0 auto;
+            }
+
+            .hidden{
+                display: none;
+                visibility: hidden;
+            }
+
+            nav{
+                font-family: sans-serif;
+                background:rgb(40, 51, 56);
+                position: fixed;
+                left: 2%;
+                top: 2%;
+                margin: 0 auto;
+            }
+            
+    
+        </style>
+    
+        <script>
+            function toggleMenu() {
+                var menu = document.getElementById("menu");
+
+                menu.classList.toggle("hidden")
+            }
+        </script>
+    
+    </head>
+    
+    <body>
+        <nav>
+            <button onclick="toggleMenu()">Settings</button>
+        </nav>
+        
+        <header>
+            <div class="container">
+    
+                <h1>No Man's Sky Custom Portal Glyph Generator</h1>
+        
+            </div>
+        </header>
+
+        <div id="glyphbuttons">
+            <div id="glyphbutt1">
+                <button id="glyphbutt" onclick="insertGlyph('0')">0</button>
+                <button id="glyphbutt" onclick="insertGlyph('4')">4</button>
+                <button id="glyphbutt" onclick="insertGlyph('8')">8</button>
+                <button id="glyphbutt" onclick="insertGlyph('C')">C</button>
+            </div>
+            <div id="glyphbutt2">
+                <button id="glyphbutt" onclick="insertGlyph('1')">1</button>
+                <button id="glyphbutt" onclick="insertGlyph('5')">5</button>
+                <button id="glyphbutt" onclick="insertGlyph('9')">9</button>
+                <button id="glyphbutt" onclick="insertGlyph('D')">D</button>
+            </div>
+            <div id="glyphbutt3">
+                <button id="glyphbutt" onclick="insertGlyph('2')">2</button>
+                <button id="glyphbutt" onclick="insertGlyph('6')">6</button>
+                <button id="glyphbutt" onclick="insertGlyph('A')">A</button>
+                <button id="glyphbutt" onclick="insertGlyph('E')">E</button>
+            </div>
+            <div id="glyphbutt4">
+                <button id="glyphbutt" onclick="insertGlyph('3')">3</button>
+                <button id="glyphbutt" onclick="insertGlyph('7')">7</button>
+                <button id="glyphbutt" onclick="insertGlyph('B')">B</button>
+                <button id="glyphbutt" onclick="insertGlyph('F')">F</button>
+            </div>
         </div>
-    </header>
 
-    <!-- body -->
-    
-    <footer>
-        <h6>A Tool Made By NerdMachine</h6>
-        <h6>Also Known as Wieder or Noktu</h6>
-    </footer>
-</body>
+        <div id="parameters">
+            
+        </div>
+
+        <div id="glyphs">
+            <div id="glyphoutput">
+                <h1>0123456789ABCDEF</h1>
+            </div>
+            <div id="glyphtitle">
+                <h1>Glyph Output</h1>
+            </div>
+            <div id="buttons">
+                <button>Generate Glyphs</button>
+                <button>Clear Glyphs</button>
+            </div>
+        </div>
+        
+        <div id="menu" class="hidden">
+            <div id="menucontents">
+                <h3>Theme</h3>
+                <input type="radio" name="theme">light</input>
+                <input type="radio" name="theme">dark</input>
+                <input type="radio" name="theme">black</input>
+
+                <h3>Glyph Readout</h3>
+                <input type="radio" name="inputtype">glyphs</input>
+                <input type="radio" name="inputtype">hex</input>
+
+                <h3>Parameters Visible</h3>
+                <input type="radio" name="paramvis">true</input>
+                <input type="radio" name="paramvis">false</input>
+            </div>
+        </div>
+
+        <footer>
+            <h6>A Tool Made By NerdMachine<br><br>Also Known as Wieder or Noktu</h6>
+        </footer>
+
+    </body>
+</html>
