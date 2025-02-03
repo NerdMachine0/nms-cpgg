@@ -4,7 +4,7 @@
 
         <title>NMS CPGG</title>
     
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
         
         <style>
             @media screen and (orientation: portrait) {
@@ -104,7 +104,7 @@
                     flex-direction: column;
                 }
 
-                #glyphbutt{
+                .glyphbutt{
                     font-family:NMS-Glyphs-Mono;
                     font-size:20px;
                     margin-top: 5px;
@@ -141,6 +141,7 @@
 
                 #glyphoutput{
                     order: 3;
+                    text-align: center;
                 }
 
                 footer{
@@ -312,7 +313,7 @@
                     flex-direction: column;
                 }
 
-                #glyphbutt{
+                .glyphbutt{
                     font-family:NMS-Glyphs-Mono;
                     font-size:30px;
                     margin-top: 5px;
@@ -347,6 +348,7 @@
 
                 #glyphoutput{
                     order: 3;
+                    text-align: center;
                 }
 
                 footer{
@@ -423,10 +425,97 @@
         </style>
     
         <script>
+            try {
+                document.addEventListener("DOMContentLoaded", function() {
+                    var element = document.getElementById('glyphoutput');
+                    var elementwidth = element.getBoundingClientRect().width;
+                    element.style.minWidth = elementwidth + 'px';
+
+                    function updateData() {
+                        console.log("frame")
+                        var control1 = document.getElementById('planetglyph');
+                        var control2 = document.getElementById('systemglyphs');
+                        var control3 = document.getElementById('yglyphs');
+                        var control4 = document.getElementById('xglyphs');
+                        var control5 = document.getElementById('zglyphs');
+
+                        var control1text = control1.value;
+                        var control2text = control2.value;
+                        var control3text = control3.value;
+                        var control4text = control4.value;
+                        var control5text = control5.value;
+                        
+                        
+
+                        if (control1text === '') {
+                            control1text = 'P';
+                        }
+                        if (control2text === '') {
+                            control2text = 'SSS';
+                        }
+                        if (control3text === '') {
+                            control3text = 'YY';
+                        }
+                        if (control4text === '') {
+                            control4text = 'XXX';
+                        }
+                        if (control5text === '') {
+                            control5text = 'ZZZ';
+                        }
+
+                        const regex = RegExp('[0-9a-fA-F]');
+                        try {
+                            control1.addEventListener('keydown', function(event) {
+                                if (!regex.test(event.key) && event.key != 'backspace') {
+                                    event.preventDefault();
+                                }
+                            });
+
+                            control2.addEventListener('keydown', function(event) {
+                                if (!regex.test(event.key) && event.key != 'backspace') {
+                                    event.preventDefault();
+                                }
+                            });
+
+                            control3.addEventListener('keydown', function(event) {
+                                if (!regex.test(event.key) && event.key != 'backspace') {
+                                    event.preventDefault();
+                                }
+                            });
+
+                            control4.addEventListener('keydown', function(event) {
+                                if (!regex.test(event.key) && event.key != 'backspace') {
+                                    event.preventDefault();
+                                }
+                            });
+
+                            control5.addEventListener('keydown', function(event) {
+                                if (!regex.test(event.key) && event.key != 'backspace') {
+                                    event.preventDefault();
+                                }
+                            });
+                        } catch (error) {
+                            console.error(error);
+                        }
+                        
+                        document.getElementById("tochange").textContent = control1text + control2text + control3text + control4text + control5text;
+                        
+                    }
+                    setInterval(updateData,16.67);
+                });
+
+                
+            } catch (error) {
+                console.error(error);
+            }
             function toggleMenu() {
                 var menu = document.getElementById("menu");
 
                 menu.classList.toggle("hidden")
+            }
+
+            function insertGlyph() {
+                // nothing
             }
         </script>
     
@@ -447,28 +536,28 @@
 
         <div id="glyphbuttons">
             <div id="glyphbutt1">
-                <button id="glyphbutt" onclick="insertGlyph('0')">0</button>
-                <button id="glyphbutt" onclick="insertGlyph('4')">4</button>
-                <button id="glyphbutt" onclick="insertGlyph('8')">8</button>
-                <button id="glyphbutt" onclick="insertGlyph('C')">C</button>
+                <button class="glyphbutt" onclick="insertGlyph('0')">0</button>
+                <button class="glyphbutt" onclick="insertGlyph('4')">4</button>
+                <button class="glyphbutt" onclick="insertGlyph('8')">8</button>
+                <button class="glyphbutt" onclick="insertGlyph('C')">C</button>
             </div>
             <div id="glyphbutt2">
-                <button id="glyphbutt" onclick="insertGlyph('1')">1</button>
-                <button id="glyphbutt" onclick="insertGlyph('5')">5</button>
-                <button id="glyphbutt" onclick="insertGlyph('9')">9</button>
-                <button id="glyphbutt" onclick="insertGlyph('D')">D</button>
+                <button class="glyphbutt" onclick="insertGlyph('1')">1</button>
+                <button class="glyphbutt" onclick="insertGlyph('5')">5</button>
+                <button class="glyphbutt" onclick="insertGlyph('9')">9</button>
+                <button class="glyphbutt" onclick="insertGlyph('D')">D</button>
             </div>
             <div id="glyphbutt3">
-                <button id="glyphbutt" onclick="insertGlyph('2')">2</button>
-                <button id="glyphbutt" onclick="insertGlyph('6')">6</button>
-                <button id="glyphbutt" onclick="insertGlyph('A')">A</button>
-                <button id="glyphbutt" onclick="insertGlyph('E')">E</button>
+                <button class="glyphbutt" onclick="insertGlyph('2')">2</button>
+                <button class="glyphbutt" onclick="insertGlyph('6')">6</button>
+                <button class="glyphbutt" onclick="insertGlyph('A')">A</button>
+                <button class="glyphbutt" onclick="insertGlyph('E')">E</button>
             </div>
             <div id="glyphbutt4">
-                <button id="glyphbutt" onclick="insertGlyph('3')">3</button>
-                <button id="glyphbutt" onclick="insertGlyph('7')">7</button>
-                <button id="glyphbutt" onclick="insertGlyph('B')">B</button>
-                <button id="glyphbutt" onclick="insertGlyph('F')">F</button>
+                <button class="glyphbutt" onclick="insertGlyph('3')">3</button>
+                <button class="glyphbutt" onclick="insertGlyph('7')">7</button>
+                <button class="glyphbutt" onclick="insertGlyph('B')">B</button>
+                <button class="glyphbutt" onclick="insertGlyph('F')">F</button>
             </div>
         </div>
 
@@ -477,27 +566,27 @@
             <div id="parameters">
                 <div id="planetparameter" class="parameterbox">
                     <h4 class="parametertitle">Planet Glyph</h4>
-                    <input id="planetglyph" class="parameterinput" type="text">
+                    <input id="planetglyph" class="parameterinput" type="text" maxlength="1">
                     <input type="radio" id="planetselected" class="parameterselection" name="parameterselection">
                 </div>
                 <div id="systemparameter" class="parameterbox">
                     <h4 class="parametertitle">System Glyphs</h4>
-                    <input id="systemglyphs" class="parameterinput" type="text">
+                    <input id="systemglyphs" class="parameterinput" type="text" maxlength="3">
                     <input type="radio" id="systemselected" class="parameterselection" name="parameterselection">
                 </div>
                 <div id="yparameter" class="parameterbox">
                     <h4 class="parametertitle">Y Glyphs</h4>
-                    <input id="yglyphs" class="parameterinput" type="text">
+                    <input id="yglyphs" class="parameterinput" type="text" maxlength="2">
                     <input type="radio" id="yselected" class="parameterselection" name="parameterselection">
                 </div>
                 <div id="xparameter" class="parameterbox">
                     <h4 class="parametertitle">X Glyphs</h4>
-                    <input id="xglyphs" class="parameterinput" type="text">
+                    <input id="xglyphs" class="parameterinput" type="text" maxlength="3">
                     <input type="radio" id="xselected" class="parameterselection" name="parameterselection">
                 </div>
                 <div id="zparameter" class="parameterbox">
                     <h4 class="parametertitle">Z Glyphs</h4>
-                    <input id="zglyphs" class="parameterinput" type="text">
+                    <input id="zglyphs" class="parameterinput" type="text" maxlength="3">
                     <input type="radio" id="zselected" class="parameterselection" name="parameterselection">
                 </div>
             </div>
@@ -505,7 +594,7 @@
 
         <div id="glyphs">
             <div id="glyphoutput">
-                <h1>0123456789ABCDEF</h1>
+                <h1 id="tochange">011122333444</h1>
             </div>
             <div id="glyphtitle">
                 <h1 id="gentitle">Glyph Output</h1>
