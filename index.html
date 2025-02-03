@@ -65,11 +65,16 @@
                 #glyphbuttons{
                     display: flex;
                     flex-direction: row;
+                }
+
+                #glyphbuttcontainer{
                     position: fixed;
                     left:50%;
                     top:25%;
                     transform: translate(-50%, -50%);
                     margin: 0 auto;
+                    display: flex;
+                    flex-direction: column;
                 }
 
                 #glyphbutt1{
@@ -216,6 +221,13 @@
                     margin-top: 10px;
                     margin-bottom: 10px;
                 }
+
+                .deletebutt{
+                    margin-top:10px;
+                    margin-bottom:10px;
+                    width:fit-content;
+                    align-self: center;
+                }
             }
             
             @media screen and (orientation: landscape) {
@@ -274,11 +286,16 @@
                 #glyphbuttons{
                     display: flex;
                     flex-direction: row;
+                }
+
+                #glyphbuttcontainer{
                     position: fixed;
                     left:50%;
                     top:25%;
                     transform: translate(-50%, -50%);
                     margin: 0 auto;
+                    display: flex;
+                    flex-direction: column;
                 }
 
                 #glyphbutt1{
@@ -421,87 +438,98 @@
                     margin-top: 10px;
                     margin-bottom: 10px;
                 }
+
+                .deletebutt{
+                    margin-top:10px;
+                    margin-bottom:10px;
+                    width:fit-content;
+                    align-self: center;
+                }
             }
         </style>
     
         <script>
             try {
                 document.addEventListener("DOMContentLoaded", function() {
-                    var element = document.getElementById('glyphoutput');
-                    var elementwidth = element.getBoundingClientRect().width;
-                    element.style.minWidth = elementwidth + 'px';
+                    document.fonts.ready.then(() => {
+                        var element = document.getElementById('glyphoutput');
+                        var elementwidth = element.getBoundingClientRect().width;
+                        element.style.minWidth = elementwidth + 'px';
 
-                    function updateData() {
-                        console.log("frame")
-                        var control1 = document.getElementById('planetglyph');
-                        var control2 = document.getElementById('systemglyphs');
-                        var control3 = document.getElementById('yglyphs');
-                        var control4 = document.getElementById('xglyphs');
-                        var control5 = document.getElementById('zglyphs');
+                        function updateData() {
+                            console.log("frame")
+                            var control1 = document.getElementById('planetglyph');
+                            var control2 = document.getElementById('systemglyphs');
+                            var control3 = document.getElementById('yglyphs');
+                            var control4 = document.getElementById('xglyphs');
+                            var control5 = document.getElementById('zglyphs');
 
-                        var control1text = control1.value;
-                        var control2text = control2.value;
-                        var control3text = control3.value;
-                        var control4text = control4.value;
-                        var control5text = control5.value;
-                        
-                        
+                            var control1text = control1.value;
+                            var control2text = control2.value;
+                            var control3text = control3.value;
+                            var control4text = control4.value;
+                            var control5text = control5.value;
+                            
+                            
 
-                        if (control1text === '') {
-                            control1text = 'P';
+                            if (control1text === '') {
+                                control1text = 'P';
+                            }
+                            if (control2text === '') {
+                                control2text = 'SSS';
+                            }
+                            if (control3text === '') {
+                                control3text = 'YY';
+                            }
+                            if (control4text === '') {
+                                control4text = 'XXX';
+                            }
+                            if (control5text === '') {
+                                control5text = 'ZZZ';
+                            }
+
+                            const regex = RegExp('[0-9a-fA-F]');
+                            try {
+                                control1.addEventListener('keydown', function(event) {
+                                    if (!regex.test(event.key) && event.key != 'backspace') {
+                                        event.preventDefault();
+                                    }
+                                });
+
+                                control2.addEventListener('keydown', function(event) {
+                                    if (!regex.test(event.key) && event.key != 'backspace') {
+                                        event.preventDefault();
+                                    }
+                                });
+
+                                control3.addEventListener('keydown', function(event) {
+                                    if (!regex.test(event.key) && event.key != 'backspace') {
+                                        event.preventDefault();
+                                    }
+                                });
+
+                                control4.addEventListener('keydown', function(event) {
+                                    if (!regex.test(event.key) && event.key != 'backspace') {
+                                        event.preventDefault();
+                                    }
+                                });
+
+                                control5.addEventListener('keydown', function(event) {
+                                    if (!regex.test(event.key) && event.key != 'backspace') {
+                                        event.preventDefault();
+                                    }
+                                });
+                            } catch (error) {
+                                console.error(error);
+                            }
+                            
+                            document.getElementById("tochange").textContent = control1text + control2text + control3text + control4text + control5text;
+                            
                         }
-                        if (control2text === '') {
-                            control2text = 'SSS';
-                        }
-                        if (control3text === '') {
-                            control3text = 'YY';
-                        }
-                        if (control4text === '') {
-                            control4text = 'XXX';
-                        }
-                        if (control5text === '') {
-                            control5text = 'ZZZ';
-                        }
-
-                        const regex = RegExp('[0-9a-fA-F]');
-                        try {
-                            control1.addEventListener('keydown', function(event) {
-                                if (!regex.test(event.key) && event.key != 'backspace') {
-                                    event.preventDefault();
-                                }
-                            });
-
-                            control2.addEventListener('keydown', function(event) {
-                                if (!regex.test(event.key) && event.key != 'backspace') {
-                                    event.preventDefault();
-                                }
-                            });
-
-                            control3.addEventListener('keydown', function(event) {
-                                if (!regex.test(event.key) && event.key != 'backspace') {
-                                    event.preventDefault();
-                                }
-                            });
-
-                            control4.addEventListener('keydown', function(event) {
-                                if (!regex.test(event.key) && event.key != 'backspace') {
-                                    event.preventDefault();
-                                }
-                            });
-
-                            control5.addEventListener('keydown', function(event) {
-                                if (!regex.test(event.key) && event.key != 'backspace') {
-                                    event.preventDefault();
-                                }
-                            });
-                        } catch (error) {
-                            console.error(error);
-                        }
-                        
-                        document.getElementById("tochange").textContent = control1text + control2text + control3text + control4text + control5text;
-                        
-                    }
-                    setInterval(updateData,16.67);
+                        setInterval(updateData,16.67);
+                    });
+                    
+                    
                 });
 
                 
@@ -514,8 +542,70 @@
                 menu.classList.toggle("hidden")
             }
 
-            function insertGlyph() {
-                // nothing
+            function insertGlyph(toinsert) {
+                var planetSelected = document.getElementById('planetselected').checked;
+                var systemSelected = document.getElementById('systemselected').checked;
+                var ySelected = document.getElementById('yselected').checked;
+                var xSelected = document.getElementById('xselected').checked;
+                var zSelected = document.getElementById('zselected').checked;
+
+                if (planetSelected) {
+                    document.getElementById('planetglyph').value = document.getElementById('planetglyph').value + toinsert;
+                    document.getElementById('planetglyph').value = document.getElementById('planetglyph').value.substring(0,1);
+                }
+
+                if (systemSelected) {
+                    document.getElementById('systemglyphs').value = document.getElementById('systemglyphs').value + toinsert;
+                    document.getElementById('systemglyphs').value = document.getElementById('systemglyphs').value.substring(0,3);
+                }
+
+                if (ySelected) {
+                    document.getElementById('yglyphs').value = document.getElementById('yglyphs').value + toinsert;
+                    document.getElementById('yglyphs').value = document.getElementById('yglyphs').value.substring(0,2);
+                }
+
+                if (xSelected) {
+                    document.getElementById('xglyphs').value = document.getElementById('xglyphs').value + toinsert;
+                    document.getElementById('xglyphs').value = document.getElementById('xglyphs').value.substring(0,3);
+                }
+
+                if (zSelected) {
+                    document.getElementById('zglyphs').value = document.getElementById('zglyphs').value + toinsert;
+                    document.getElementById('zglyphs').value = document.getElementById('zglyphs').value.substring(0,3);
+                }
+            }
+
+            function removeGlyph() {
+                var planetSelected = document.getElementById('planetselected').checked;
+                var systemSelected = document.getElementById('systemselected').checked;
+                var ySelected = document.getElementById('yselected').checked;
+                var xSelected = document.getElementById('xselected').checked;
+                var zSelected = document.getElementById('zselected').checked;
+
+                if (planetSelected) {
+                    var string = document.getElementById('planetglyph').value;
+                    document.getElementById('planetglyph').value = string.slice(0,string.length - 1);
+                }
+
+                if (systemSelected) {
+                    var string = document.getElementById('systemglyphs').value;
+                    document.getElementById('systemglyphs').value = string.slice(0,string.length - 1);
+                }
+
+                if (ySelected) {
+                    var string = document.getElementById('yglyphs').value;
+                    document.getElementById('yglyphs').value = string.slice(0,string.length - 1);
+                }
+
+                if (xSelected) {
+                    var string = document.getElementById('xglyphs').value;
+                    document.getElementById('xglyphs').value = string.slice(0,string.length - 1);
+                }
+
+                if (zSelected) {
+                    var string = document.getElementById('zglyphs').value;
+                    document.getElementById('zglyphs').value = string.slice(0,string.length - 1);
+                }
             }
         </script>
     
@@ -534,33 +624,36 @@
             </div>
         </header>
 
-        <div id="glyphbuttons">
-            <div id="glyphbutt1">
-                <button class="glyphbutt" onclick="insertGlyph('0')">0</button>
-                <button class="glyphbutt" onclick="insertGlyph('4')">4</button>
-                <button class="glyphbutt" onclick="insertGlyph('8')">8</button>
-                <button class="glyphbutt" onclick="insertGlyph('C')">C</button>
+        <div id="glyphbuttcontainer">
+            <div id="glyphbuttons">
+                <div id="glyphbutt1">
+                    <button class="glyphbutt" onclick="insertGlyph('0')">0</button>
+                    <button class="glyphbutt" onclick="insertGlyph('4')">4</button>
+                    <button class="glyphbutt" onclick="insertGlyph('8')">8</button>
+                    <button class="glyphbutt" onclick="insertGlyph('C')">C</button>
+                </div>
+                <div id="glyphbutt2">
+                    <button class="glyphbutt" onclick="insertGlyph('1')">1</button>
+                    <button class="glyphbutt" onclick="insertGlyph('5')">5</button>
+                    <button class="glyphbutt" onclick="insertGlyph('9')">9</button>
+                    <button class="glyphbutt" onclick="insertGlyph('D')">D</button>
+                </div>
+                <div id="glyphbutt3">
+                    <button class="glyphbutt" onclick="insertGlyph('2')">2</button>
+                    <button class="glyphbutt" onclick="insertGlyph('6')">6</button>
+                    <button class="glyphbutt" onclick="insertGlyph('A')">A</button>
+                    <button class="glyphbutt" onclick="insertGlyph('E')">E</button>
+                </div>
+                <div id="glyphbutt4">
+                    <button class="glyphbutt" onclick="insertGlyph('3')">3</button>
+                    <button class="glyphbutt" onclick="insertGlyph('7')">7</button>
+                    <button class="glyphbutt" onclick="insertGlyph('B')">B</button>
+                    <button class="glyphbutt" onclick="insertGlyph('F')">F</button>
+                </div>
             </div>
-            <div id="glyphbutt2">
-                <button class="glyphbutt" onclick="insertGlyph('1')">1</button>
-                <button class="glyphbutt" onclick="insertGlyph('5')">5</button>
-                <button class="glyphbutt" onclick="insertGlyph('9')">9</button>
-                <button class="glyphbutt" onclick="insertGlyph('D')">D</button>
-            </div>
-            <div id="glyphbutt3">
-                <button class="glyphbutt" onclick="insertGlyph('2')">2</button>
-                <button class="glyphbutt" onclick="insertGlyph('6')">6</button>
-                <button class="glyphbutt" onclick="insertGlyph('A')">A</button>
-                <button class="glyphbutt" onclick="insertGlyph('E')">E</button>
-            </div>
-            <div id="glyphbutt4">
-                <button class="glyphbutt" onclick="insertGlyph('3')">3</button>
-                <button class="glyphbutt" onclick="insertGlyph('7')">7</button>
-                <button class="glyphbutt" onclick="insertGlyph('B')">B</button>
-                <button class="glyphbutt" onclick="insertGlyph('F')">F</button>
-            </div>
+            <button class="deletebutt" onclick="removeGlyph()">Delete</button>
         </div>
-
+    
         <div id="parametertitle">
             <h1 id="gentitle">Parameters</h1>
             <div id="parameters">
