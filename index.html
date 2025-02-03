@@ -4,164 +4,384 @@
 
         <title>NMS CPGG</title>
     
-        <meta name="viewport" content=“width=device-width, initial-scale=1.0“>
-    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
         <style>
-    
-            header {
-                font-family: sans-serif;
-                background:rgb(40, 51, 56);
-                position: fixed;
-                left: 50%;
-                top: 2.604166667vw;
-                transform: translate(-50%, -50%);
-                margin: 0 auto;
-            }
-    
-            body {
-                font-family: sans-serif;
-                color:rgb(255, 255, 255);
-                background:rgb(40, 51, 56);
-            }
-    
-            @font-face{
-                font-family:NMS-Glyphs-Mono;
-                src:url('assets/fonts/NMS-Glyphs-Mono.ttf');
+            @media screen and (orientation: portrait) {
+                header {
+                    font-family: sans-serif;
+                    font-size: x-small;
+                    background:rgb(40, 51, 56);
+                    position: fixed;
+                    left: 50%;
+                    top: 50px;
+                    transform: translate(-50%, -50%);
+                    margin: 0 auto;
+                }
+        
+                body {
+                    font-family: sans-serif;
+                    font-size: x-small;
+                    color:rgb(255, 255, 255);
+                    background:rgb(40, 51, 56);
+                }
+        
+                @font-face{
+                    font-family:NMS-Glyphs-Mono;
+                    src:url('assets/fonts/NMS-Glyphs-Mono.ttf');
+                }
+                
+                #menu{
+                    font-family: sans-serif;
+                    font-size: x-small;
+                    background:rgb(92, 137, 158);
+                    position: fixed;
+                    left: 25%;
+                    right: 25%;
+                    bottom: 33%;
+                    top: 33%;
+                    height:fit-content;
+                    width:fit-content;
+                    padding-top:20px;
+                    padding-bottom:40px;
+                    padding-left:40px;
+                    padding-right:60px;
+                    margin: 0 auto;
+                }
+
+                #menucontents{
+                    font-family: sans-serif;
+                    font-size: x-small;
+                    background:rgb(92, 137, 158);
+                    position: relative;
+                    max-width:fit-content;
+                    max-height:fit-content;
+                }
+
+                #glyphbuttons{
+                    display: flex;
+                    flex-direction: row;
+                    position: fixed;
+                    left:50%;
+                    top:25%;
+                    transform: translate(-50%, -50%);
+                    margin: 0 auto;
+                }
+
+                #glyphbutt1{
+                    order: 1;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                #glyphbutt2{
+                    order: 2;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                #glyphbutt3{
+                    order: 3;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                #glyphbutt4{
+                    order: 4;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                #glyphbutt{
+                    font-family:NMS-Glyphs-Mono;
+                    font-size:20px;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                }
+
+                #glyphs{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    font-family:NMS-Glyphs-Mono;
+                    font-size: x-small;
+                    background:rgb(40, 51, 56);
+                    position: fixed;
+                    left: 50%;
+                    bottom: 5%;
+                    transform: translate(-50%, -50%);
+                    margin: 0 auto;
+                }
+                
+                #buttons{
+                    order: 1;
+
+                    background:rgb(40, 51, 56);
+                }
+
+                #glyphtitle{
+                    order: 2;
+
+                    font-family: sans-serif;
+                    font-size: x-small;
+                    background:rgb(40, 51, 56);
+                }
+
+                #glyphoutput{
+                    order: 3;
+                }
+
+                footer{
+                    font-family: sans-serif;
+                    font-size: x-small;
+                    background:rgb(40, 51, 56);
+                    position: fixed;
+                    left: 50%;
+                    bottom: 0px;
+                    transform: translate(-50%, -50%);
+                    margin: 0 auto;
+                }
+
+                .hidden{
+                    display: none;
+                    visibility: hidden;
+                }
+
+                nav{
+                    font-family: sans-serif;
+                    font-size: x-small;
+                    background:rgb(40, 51, 56);
+                    position: fixed;
+                    left: 2%;
+                    top: 2%;
+                    margin: 0 auto;
+                }
+
+                .parameterinput{
+                    width:30px;
+                }
+
+                #parameters{
+                    display: flex;
+                    flex-direction: row;
+                }
+
+                .parameterbox{
+                    display: flex;
+                    flex-direction: column;
+                    width:30px;
+                    padding-left:20px;
+                    padding-right:20px;
+                }
+
+                .parametertitle{
+                    text-align:center;
+                    text-wrap: wrap;
+                }
+
+                #parametertitle{
+                    position: fixed;
+                    text-align:center;
+                    left: 50%;
+                    top: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    transform: translate(-50%, -50%);
+                }
             }
             
-            #menu{
-                font-family: sans-serif;
-                background:rgb(92, 137, 158);
-                position: fixed;
-                left: 25%;
-                right: 25%;
-                bottom: 33%;
-                top: 33%;
-                height:fit-content;
-                width:fit-content;
-                padding-top:1.041666667vw;
-                padding-bottom:2.083333333vw;
-                padding-left:2.083333333vw;
-                padding-right:3.125vw;
-                max-width:50vw;
-                max-height:18.75vw;
-                margin: 0 auto;
-            }
+            @media screen and (orientation: landscape) {
+                header {
+                    font-family: sans-serif;
+                    background:rgb(40, 51, 56);
+                    position: fixed;
+                    left: 50%;
+                    top: 50px;
+                    transform: translate(-50%, -50%);
+                    margin: 0 auto;
+                }
+        
+                body {
+                    font-family: sans-serif;
+                    color:rgb(255, 255, 255);
+                    background:rgb(40, 51, 56);
+                }
+        
+                @font-face{
+                    font-family:NMS-Glyphs-Mono;
+                    src:url('assets/fonts/NMS-Glyphs-Mono.ttf');
+                }
+                
+                #menu{
+                    font-family: sans-serif;
+                    background:rgb(92, 137, 158);
+                    position: fixed;
+                    left: 25%;
+                    right: 25%;
+                    bottom: 33%;
+                    top: 33%;
+                    height:fit-content;
+                    width:fit-content;
+                    padding-top:20px;
+                    padding-bottom:40px;
+                    padding-left:40px;
+                    padding-right:60px;
+                    max-width:960px;
+                    max-height:360px;
+                    margin: 0 auto;
+                }
 
-            #menucontents{
-                font-family: sans-serif;
-                background:rgb(92, 137, 158);
-                position: relative;
-                max-width:fit-content;
-                max-height:fit-content;
-            }
+                #menucontents{
+                    font-family: sans-serif;
+                    background:rgb(92, 137, 158);
+                    position: relative;
+                    max-width:fit-content;
+                    max-height:fit-content;
+                }
 
-            #glyphbuttons{
-                display: flex;
-                flex-direction: row;
-                position: fixed;
-                left:50%;
-                top:25%;
-                transform: translate(-50%, -50%);
-                margin: 0 auto;
-            }
+                #glyphbuttons{
+                    display: flex;
+                    flex-direction: row;
+                    position: fixed;
+                    left:50%;
+                    top:25%;
+                    transform: translate(-50%, -50%);
+                    margin: 0 auto;
+                }
 
-            #glyphbutt1{
-                order: 1;
-                padding-left: 0.2604166667vw;
-                padding-right: 0.2604166667vw;
-                display: flex;
-                flex-direction: column;
-            }
+                #glyphbutt1{
+                    order: 1;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    display: flex;
+                    flex-direction: column;
+                }
 
-            #glyphbutt2{
-                order: 2;
-                padding-left: 0.2604166667vw;
-                padding-right: 0.2604166667vw;
-                display: flex;
-                flex-direction: column;
-            }
+                #glyphbutt2{
+                    order: 2;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    display: flex;
+                    flex-direction: column;
+                }
 
-            #glyphbutt3{
-                order: 3;
-                padding-left: 0.2604166667vw;
-                padding-right: 0.2604166667vw;
-                display: flex;
-                flex-direction: column;
-            }
+                #glyphbutt3{
+                    order: 3;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    display: flex;
+                    flex-direction: column;
+                }
 
-            #glyphbutt4{
-                order: 4;
-                padding-left: 0.2604166667vw;
-                padding-right: 0.2604166667vw;
-                display: flex;
-                flex-direction: column;
-            }
+                #glyphbutt4{
+                    order: 4;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    display: flex;
+                    flex-direction: column;
+                }
 
-            #glyphbutt{
-                font-family:NMS-Glyphs-Mono;
-                font-size:1.5625vw;
-                margin-top: 0.2604166667vw;
-                margin-bottom: 0.2604166667vw;
-            }
+                #glyphbutt{
+                    font-family:NMS-Glyphs-Mono;
+                    font-size:30px;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                }
 
-            #glyphs{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                font-family:NMS-Glyphs-Mono;
-                background:rgb(40, 51, 56);
-                position: fixed;
-                left: 50%;
-                bottom: 10%;
-                width:26.04166667vw;
-                height:10.41666667vw;
-                transform: translate(-50%, -50%);
-                margin: 0 auto;
-            }
-            
-            #buttons{
-                order: 1;
+                #glyphs{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    font-family:NMS-Glyphs-Mono;
+                    background:rgb(40, 51, 56);
+                    position: fixed;
+                    left: 50%;
+                    bottom: 10%;
+                    transform: translate(-50%, -50%);
+                    margin: 0 auto;
+                }
+                
+                #buttons{
+                    order: 1;
 
-                background:rgb(40, 51, 56);
-            }
+                    background:rgb(40, 51, 56);
+                }
 
-            #glyphtitle{
-                order: 2;
+                #glyphtitle{
+                    order: 2;
 
-                font-family: sans-serif;
-                background:rgb(40, 51, 56);
-            }
+                    font-family: sans-serif;
+                    background:rgb(40, 51, 56);
+                }
 
-            #glyphoutput{
-                order: 3;
-            }
+                #glyphoutput{
+                    order: 3;
+                }
 
-            footer{
-                font-family: sans-serif;
-                background:rgb(40, 51, 56);
-                position: fixed;
-                left: 50%;
-                bottom: 0vw;
-                transform: translate(-50%, -50%);
-                margin: 0 auto;
-            }
+                footer{
+                    font-family: sans-serif;
+                    background:rgb(40, 51, 56);
+                    position: fixed;
+                    left: 50%;
+                    bottom: 0px;
+                    transform: translate(-50%, -50%);
+                    margin: 0 auto;
+                }
 
-            .hidden{
-                display: none;
-                visibility: hidden;
-            }
+                .hidden{
+                    display: none;
+                    visibility: hidden;
+                }
 
-            nav{
-                font-family: sans-serif;
-                background:rgb(40, 51, 56);
-                position: fixed;
-                left: 2%;
-                top: 2%;
-                margin: 0 auto;
+                nav{
+                    font-family: sans-serif;
+                    background:rgb(40, 51, 56);
+                    position: fixed;
+                    left: 2%;
+                    top: 2%;
+                    margin: 0 auto;
+                }
+
+                .parameterinput{
+                    width:30px;
+                }
+
+                #parameters{
+                    display: flex;
+                    flex-direction: row;
+                }
+
+                .parameterbox{
+                    display: flex;
+                    flex-direction: column;
+                    width:30px;
+                    padding-left:20px;
+                    padding-right:20px;
+                }
+
+                .parametertitle{
+                    text-align:center;
+                    text-wrap: wrap;
+                }
+
+                #parametertitle{
+                    position: fixed;
+                    text-align:center;
+                    left: 50%;
+                    top: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    transform: translate(-50%, -50%);
+                }
             }
-            
-    
         </style>
     
         <script>
@@ -214,8 +434,30 @@
             </div>
         </div>
 
-        <div id="parameters">
-            
+        <div id="parametertitle">
+            <h1>Parameters</h1>
+            <div id="parameters">
+                <div id="planetparameter" class="parameterbox">
+                    <h4 class="parametertitle">Planet Glyph</h4>
+                    <input id="planetglyph" class="parameterinput" type="text">
+                </div>
+                <div id="systemparameter" class="parameterbox">
+                    <h4 class="parametertitle">System Glyphs</h4>
+                    <input id="systemglyphs" class="parameterinput" type="text">
+                </div>
+                <div id="yparameter" class="parameterbox">
+                    <h4 class="parametertitle">Y Glyphs</h4>
+                    <input id="yglyphs" class="parameterinput" type="text">
+                </div>
+                <div id="xparameter" class="parameterbox">
+                    <h4 class="parametertitle">X Glyphs</h4>
+                    <input id="xglyphs" class="parameterinput" type="text">
+                </div>
+                <div id="yparameter" class="parameterbox">
+                    <h4 class="parametertitle">Z Glyphs</h4>
+                    <input id="zglyphs" class="parameterinput" type="text">
+                </div>
+            </div>
         </div>
 
         <div id="glyphs">
