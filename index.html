@@ -7,444 +7,300 @@
         <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
         
         <style>
-            @media screen and (orientation: portrait) {
-                header {
-                    font-family: sans-serif;
-                    font-size: x-small;
-                    background:rgb(40, 51, 56);
-                    position: fixed;
-                    left: 50%;
-                    top: 50px;
-                    transform: translate(-50%, -50%);
-                    margin: 0 auto;
-                }
-                
-                .container{
-                    text-wrap: nowrap;
-                }
-
-                body {
-                    font-family: sans-serif;
-                    font-size: x-small;
-                    color:rgb(255, 255, 255);
-                    background:rgb(40, 51, 56);
-                }
-        
-                @font-face{
-                    font-family:NMS-Glyphs-Mono;
-                    src:url('assets/fonts/NMS-Glyphs-Mono.ttf');
-                }
-                
-                #menu{
-                    font-family: sans-serif;
-                    font-size: x-small;
-                    background:rgb(92, 137, 158);
-                    position: fixed;
-                    left: 25%;
-                    right: 25%;
-                    bottom: 33%;
-                    top: 33%;
-                    height:fit-content;
-                    width:fit-content;
-                    padding-top:20px;
-                    padding-bottom:40px;
-                    padding-left:40px;
-                    padding-right:60px;
-                    margin: 0 auto;
-                }
-
-                #menucontents{
-                    font-family: sans-serif;
-                    font-size: x-small;
-                    background:rgb(92, 137, 158);
-                    position: relative;
-                    max-width:fit-content;
-                    max-height:fit-content;
-                }
-
-                #glyphbuttons{
-                    display: flex;
-                    flex-direction: row;
-                }
-
-                #glyphbuttcontainer{
-                    position: fixed;
-                    left:50%;
-                    top:25%;
-                    transform: translate(-50%, -50%);
-                    margin: 0 auto;
-                    display: flex;
-                    flex-direction: column;
-                }
-
-                #glyphbutt1{
-                    order: 1;
-                    padding-left: 5px;
-                    padding-right: 5px;
-                    display: flex;
-                    flex-direction: column;
-                }
-
-                #glyphbutt2{
-                    order: 2;
-                    padding-left: 5px;
-                    padding-right: 5px;
-                    display: flex;
-                    flex-direction: column;
-                }
-
-                #glyphbutt3{
-                    order: 3;
-                    padding-left: 5px;
-                    padding-right: 5px;
-                    display: flex;
-                    flex-direction: column;
-                }
-
-                #glyphbutt4{
-                    order: 4;
-                    padding-left: 5px;
-                    padding-right: 5px;
-                    display: flex;
-                    flex-direction: column;
-                }
-
-                .glyphbutt{
-                    font-family:NMS-Glyphs-Mono;
-                    font-size:20px;
-                    margin-top: 5px;
-                    margin-bottom: 5px;
-                }
-
-                #glyphs{
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    font-family:NMS-Glyphs-Mono;
-                    font-size: x-small;
-                    background:rgb(40, 51, 56);
-                    position: fixed;
-                    left: 50%;
-                    bottom: 10%;
-                    transform: translate(-50%, -50%);
-                    margin: 0 auto;
-                }
-                
-                #buttons{
-                    order: 1;
-
-                    background:rgb(40, 51, 56);
-                }
-
-                #glyphtitle{
-                    order: 2;
-
-                    font-family: sans-serif;
-                    font-size: x-small;
-                    background:rgb(40, 51, 56);
-                }
-
-                #glyphoutput{
-                    order: 3;
-                    text-align: center;
-                }
-
-                footer{
-                    font-family: sans-serif;
-                    font-size: x-small;
-                    background:rgb(40, 51, 56);
-                    position: fixed;
-                    left: 50%;
-                    bottom: -20px;
-                    transform: translate(-50%, -50%);
-                    margin: 0 auto;
-                }
-
-                .hidden{
-                    display: none;
-                    visibility: hidden;
-                }
-
-                nav{
-                    font-family: sans-serif;
-                    font-size: x-small;
-                    background:rgb(40, 51, 56);
-                    position: fixed;
-                    left: 2%;
-                    top: 2%;
-                    margin: 0 auto;
-                }
-
-                .parameterinput{
-                    width:30px;
-                }
-
-                #parameters{
-                    display: flex;
-                    flex-direction: row;
-                }
-
-                .parameterbox{
-                    display: flex;
-                    flex-direction: column;
-                    align-items:center;
-                    width:30px;
-                    padding-left:20px;
-                    padding-right:20px;
-                }
-
-                .parametertitle{
-                    text-align:center;
-                    text-wrap: wrap;
-                }
-
-                #parametertitle{
-                    position: fixed;
-                    text-align:center;
-                    left: 50%;
-                    top: 50%;
-                    display: flex;
-                    flex-direction: column;
-                    transform: translate(-50%, -50%);
-                }
-
-                .parameterselection{
-                    margin-top: 10px;
-                }
-
-                #gentitle{
-                    margin-top: 0px;
-                    margin-bottom: 0px;
-                }
-
-                .generate{
-                    margin-top: 10px;
-                    margin-bottom: 10px;
-                }
-
-                .deletebutt{
-                    margin-top:10px;
-                    margin-bottom:10px;
-                    width:fit-content;
-                    align-self: center;
-                }
+            #everything {
+                display: flex;
+                flex-direction: column;
+                min-height:fit-content;
+                min-width:fit-content;
+                height:100%;
+                width:100%;
+                max-height:100%;
+                max-width:100%;
+                position:absolute;
             }
             
-            @media screen and (orientation: landscape) {
-                header {
-                    font-family: sans-serif;
-                    background:rgb(40, 51, 56);
-                    position: fixed;
-                    left: 50%;
-                    top: 50px;
-                    transform: translate(-50%, -50%);
-                    margin: 0 auto;
-                }
-                
-                .container{
-                    text-wrap: nowrap;
-                }
+            header {
+                order: 0;
 
-                body {
-                    font-family: sans-serif;
-                    color:rgb(255, 255, 255);
-                    background:rgb(40, 51, 56);
-                }
-        
-                @font-face{
-                    font-family:NMS-Glyphs-Mono;
-                    src:url('assets/fonts/NMS-Glyphs-Mono.ttf');
-                }
-                
-                #menu{
-                    font-family: sans-serif;
-                    background:rgb(92, 137, 158);
-                    position: fixed;
-                    left: 25%;
-                    right: 25%;
-                    bottom: 33%;
-                    top: 33%;
-                    height:fit-content;
-                    width:fit-content;
-                    padding-top:20px;
-                    padding-bottom:40px;
-                    padding-left:40px;
-                    padding-right:60px;
-                    max-width:960px;
-                    max-height:360px;
-                    margin: 0 auto;
-                }
+                font-family: sans-serif;
+                background:rgb(40, 51, 56);
+                position: static;
+                left: 50%;
+                top: 50px;
+                margin: 0 auto;
+            }
+            
+            .container{
+                text-wrap: nowrap;
+            }
 
-                #menucontents{
-                    font-family: sans-serif;
-                    background:rgb(92, 137, 158);
-                    position: relative;
-                    max-width:fit-content;
-                    max-height:fit-content;
-                }
+            body {
+                font-family: sans-serif;
+                color:rgb(255, 255, 255);
+                background:rgb(40, 51, 56);
+            }
+    
+            @font-face{
+                font-family:NMS-Glyphs-Mono;
+                src:url('assets/fonts/NMS-Glyphs-Mono.ttf');
+            }
+            
+            #menu{
+                order: 3;
 
-                #glyphbuttons{
-                    display: flex;
-                    flex-direction: row;
-                }
+                font-family: sans-serif;
+                background:rgb(92, 137, 158);
+                position: static;
+                left: 25%;
+                right: 25%;
+                bottom: 33%;
+                top: 33%;
+                height:fit-content;
+                width:fit-content;
+                padding-top:20px;
+                padding-bottom:80px;
+                padding-left:60px;
+                padding-right:60px;
+                max-width:960px;
+                max-height:360px;
+                margin: 10px auto;
+            }
 
-                #glyphbuttcontainer{
-                    position: fixed;
-                    left:50%;
-                    top:25%;
-                    transform: translate(-50%, -50%);
-                    margin: 0 auto;
-                    display: flex;
-                    flex-direction: column;
-                }
+            #help {
+                order: 2;
 
-                #glyphbutt1{
-                    order: 1;
-                    padding-left: 5px;
-                    padding-right: 5px;
-                    display: flex;
-                    flex-direction: column;
-                }
+                font-family: sans-serif;
+                background:rgb(92, 137, 158);
+                position: static;
+                left: 25%;
+                right: 25%;
+                bottom: 33%;
+                top: 33%;
+                height:fit-content;
+                width:fit-content;
+                padding-top:20px;
+                padding-bottom:80px;
+                padding-left:60px;
+                padding-right:60px;
+                max-width:960px;
+                max-height:360px;
+                margin: 10px auto;
+            }
 
-                #glyphbutt2{
-                    order: 2;
-                    padding-left: 5px;
-                    padding-right: 5px;
-                    display: flex;
-                    flex-direction: column;
-                }
+            #helpcontents{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                align-self: center;
 
-                #glyphbutt3{
-                    order: 3;
-                    padding-left: 5px;
-                    padding-right: 5px;
-                    display: flex;
-                    flex-direction: column;
-                }
+                font-family: sans-serif;
+                background:rgb(92, 137, 158);
+                position: static;
+                max-width:fit-content;
+                max-height:fit-content;
+            }
 
-                #glyphbutt4{
-                    order: 4;
-                    padding-left: 5px;
-                    padding-right: 5px;
-                    display: flex;
-                    flex-direction: column;
-                }
+            #menucontents{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                align-self: center;
 
-                .glyphbutt{
-                    font-family:NMS-Glyphs-Mono;
-                    font-size:30px;
-                    margin-top: 5px;
-                    margin-bottom: 5px;
-                }
+                font-family: sans-serif;
+                background:rgb(92, 137, 158);
+                position: static;
+                max-width:fit-content;
+                max-height:fit-content;
+            }
 
-                #glyphs{
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    font-family:NMS-Glyphs-Mono;
-                    background:rgb(40, 51, 56);
-                    position: fixed;
-                    left: 50%;
-                    bottom: 10%;
-                    transform: translate(-50%, -50%);
-                    margin: 0 auto;
-                }
-                
-                #buttons{
-                    order: 1;
+            #glyphbuttons{
+                display: flex;
+                flex-direction: row;
+            }
 
-                    background:rgb(40, 51, 56);
-                }
+            #glyphbuttcontainer{
+                order: 0;
 
-                #glyphtitle{
-                    order: 2;
+                position: static;
+                left:50%;
+                top:25%;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+            }
 
-                    font-family: sans-serif;
-                    background:rgb(40, 51, 56);
-                }
+            #glyphbutt1{
+                order: 1;
+                padding-left: 5px;
+                padding-right: 5px;
+                display: flex;
+                flex-direction: column;
+            }
 
-                #glyphoutput{
-                    order: 3;
-                    text-align: center;
-                }
+            #glyphbutt2{
+                order: 2;
+                padding-left: 5px;
+                padding-right: 5px;
+                display: flex;
+                flex-direction: column;
+            }
 
-                footer{
-                    font-family: sans-serif;
-                    background:rgb(40, 51, 56);
-                    position: fixed;
-                    left: 50%;
-                    bottom: 0px;
-                    transform: translate(-50%, -50%);
-                    margin: 0 auto;
-                }
+            #glyphbutt3{
+                order: 3;
+                padding-left: 5px;
+                padding-right: 5px;
+                display: flex;
+                flex-direction: column;
+            }
 
-                .hidden{
-                    display: none;
-                    visibility: hidden;
-                }
+            #glyphbutt4{
+                order: 4;
+                padding-left: 5px;
+                padding-right: 5px;
+                display: flex;
+                flex-direction: column;
+            }
 
-                nav{
-                    font-family: sans-serif;
-                    background:rgb(40, 51, 56);
-                    position: fixed;
-                    left: 2%;
-                    top: 2%;
-                    margin: 0 auto;
-                }
+            .glyphbutt{
+                font-family:NMS-Glyphs-Mono;
+                font-size:30px;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
 
-                .parameterinput{
-                    width:30px;
-                }
+            #glyphs{
+                order: 4;
 
-                #parameters{
-                    display: flex;
-                    flex-direction: row;
-                }
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-family:NMS-Glyphs-Mono;
+                background:rgb(40, 51, 56);
+                position: static;
+                left: 50%;
+                bottom: 10%;
+                padding: 10px;
+                margin: 0 auto;
+            }
+            
+            #buttons{
+                order: 1;
 
-                .parameterbox{
-                    display: flex;
-                    flex-direction: column;
-                    align-items:center;
-                    width:30px;
-                    padding-left:20px;
-                    padding-right:20px;
-                }
+                background:rgb(40, 51, 56);
+            }
 
-                .parametertitle{
-                    text-align:center;
-                    text-wrap: wrap;
-                }
+            #glyphtitle{
+                order: 2;
 
-                #parametertitle{
-                    position: fixed;
-                    text-align:center;
-                    left: 50%;
-                    top: 50%;
-                    display: flex;
-                    flex-direction: column;
-                    transform: translate(-50%, -50%);
-                }
+                font-family: sans-serif;
+                background:rgb(40, 51, 56);
+            }
 
-                .parameterselection{
-                    margin-top: 10px;
-                }
+            #glyphoutput{
+                order: 3;
+                text-align: center;
+            }
 
-                #gentitle{
-                    margin-top: 0px;
-                    margin-bottom: 0px;
-                }
+            footer{
+                order: 6;
 
-                .generate{
-                    margin-top: 10px;
-                    margin-bottom: 10px;
-                }
+                font-family: sans-serif;
+                background:rgb(40, 51, 56);
+                position: static;
+                left: 50%;
+                bottom: 0px;
+                margin: 0 auto;
+            }
 
-                .deletebutt{
-                    margin-top:10px;
-                    margin-bottom:10px;
-                    width:fit-content;
-                    align-self: center;
-                }
+            .hidden{
+                display: none;
+                visibility: hidden;
+            }
+
+            .help{
+                display: none;
+                visibility: hidden;
+            }
+
+            nav{
+                order: 1;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                font-family: sans-serif;
+                background:rgb(40, 51, 56);
+                position: static;
+                left: 2%;
+                top: 2%;
+                margin: 0 auto;
+            }
+
+            .parameterinput{
+                width:30px;
+            }
+
+            #parameters{
+                display: flex;
+                flex-direction: row;
+                align-self: center;
+            }
+
+            .parameterbox{
+                display: flex;
+                flex-direction: column;
+                align-items:center;
+                width:30px;
+                padding-left:20px;
+                padding-right:20px;
+            }
+
+            .parametertitle{
+                text-align:center;
+                text-wrap: wrap;
+            }
+
+            #parametertitle{
+                order: 1;
+
+                position: static;
+                text-align:center;
+                left: 50%;
+                top: 50%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .parameterselection{
+                margin-top: 10px;
+            }
+
+            #gentitle{
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+
+            .generate{
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            .deletebutt{
+                margin-top:10px;
+                margin-bottom:10px;
+                width:fit-content;
+                align-self: center;
+            }
+
+            #topbutts{
+                align-items: center;
+                padding: 10px;
+            }
+
+            #bottombutts{
+                align-items: center;
+                padding: 10px;
             }
         </style>
     
@@ -464,11 +320,11 @@
                             var control4 = document.getElementById('xglyphs');
                             var control5 = document.getElementById('zglyphs');
 
-                            var control1text = control1.value;
-                            var control2text = control2.value;
-                            var control3text = control3.value;
-                            var control4text = control4.value;
-                            var control5text = control5.value;
+                            var control1text = control1.value.toUpperCase();
+                            var control2text = control2.value.toUpperCase();
+                            var control3text = control3.value.toUpperCase();
+                            var control4text = control4.value.toUpperCase();
+                            var control5text = control5.value.toUpperCase();
                             
                             
 
@@ -532,192 +388,264 @@
                     
                 });
 
-                
+                var readoutmode = -1;
+
+                function toggleReadout() {
+                    // Switch Readout
+                    switch (readoutmode) {
+                        case (-1): 
+                            readoutmode = 1;
+                            break;
+                        case (0):
+                            readoutmode = 1;
+                            break;
+                        case (1):
+                            readoutmode = 2;
+                            break;
+                        case (2):
+                            readoutmode = 3;
+                            break;
+                        case (3):
+                            readoutmode = 4;
+                            break;
+                        case (4):
+                            readoutmode = 0;
+                            break;
+                        default:
+                            readoutmode = 0;
+                            break;
+                    }
+
+                    // Set Elements to Change
+                    var change1 = document.getElementById("glyphs");
+                    var change2 = document.getElementsByClassName("glyphbutt");
+                    var change2arr = Array.from(change2);
+
+                    // Apply Readout
+                    switch (readoutmode) {
+                        case 0:
+                            // Glyphs Icon
+                            change1.style.fontFamily = "NMS-Glyphs-Mono";
+                            change2arr.forEach(element => {element.style.fontFamily = "NMS-Glyphs-Mono";});
+                            break;
+                        case 1:
+                            // Glyphs Text
+                            change1.style.fontFamily = "sans-serif";
+                            change2arr.forEach(element => {element.style.fontFamily = "sans-serif";});
+                            break;
+                        case 2:
+                            // Galactic Coords
+                            break;
+                        case 3:
+                            // Glyphs Icon and Galactic Coords
+                            change1.style.fontFamily = "NMS-Glyphs-Mono";
+                            change2arr.forEach(element => {element.style.fontFamily = "NMS-Glyphs-Mono";});
+                            break;
+                        case 4:
+                            // Glyphs Text and Galactic Coords
+                            change1.style.fontFamily = "sans-serif";
+                            change2arr.forEach(element => {element.style.fontFamily = "sans-serif";});
+                            break;
+                    }
+                    console.log(readoutmode.toString());
+                }
+
+                function toggleTheme() {
+
+                }
+
+                function toggleParams() {
+                    var menu = document.getElementById("menu");
+
+                    menu.classList.toggle("hidden")
+                }
+
+                function toggleHelp() {
+                    var help = document.getElementById("help");
+
+                    help.classList.toggle("help")
+                }
+
+                function insertGlyph(toinsert) {
+                    var planetSelected = document.getElementById('planetselected').checked;
+                    var systemSelected = document.getElementById('systemselected').checked;
+                    var ySelected = document.getElementById('yselected').checked;
+                    var xSelected = document.getElementById('xselected').checked;
+                    var zSelected = document.getElementById('zselected').checked;
+
+                    if (planetSelected) {
+                        document.getElementById('planetglyph').value = document.getElementById('planetglyph').value + toinsert;
+                        document.getElementById('planetglyph').value = document.getElementById('planetglyph').value.substring(0,1);
+                    }
+
+                    if (systemSelected) {
+                        document.getElementById('systemglyphs').value = document.getElementById('systemglyphs').value + toinsert;
+                        document.getElementById('systemglyphs').value = document.getElementById('systemglyphs').value.substring(0,3);
+                    }
+
+                    if (ySelected) {
+                        document.getElementById('yglyphs').value = document.getElementById('yglyphs').value + toinsert;
+                        document.getElementById('yglyphs').value = document.getElementById('yglyphs').value.substring(0,2);
+                    }
+
+                    if (xSelected) {
+                        document.getElementById('xglyphs').value = document.getElementById('xglyphs').value + toinsert;
+                        document.getElementById('xglyphs').value = document.getElementById('xglyphs').value.substring(0,3);
+                    }
+
+                    if (zSelected) {
+                        document.getElementById('zglyphs').value = document.getElementById('zglyphs').value + toinsert;
+                        document.getElementById('zglyphs').value = document.getElementById('zglyphs').value.substring(0,3);
+                    }
+                }
+
+                function removeGlyph() {
+                    var planetSelected = document.getElementById('planetselected').checked;
+                    var systemSelected = document.getElementById('systemselected').checked;
+                    var ySelected = document.getElementById('yselected').checked;
+                    var xSelected = document.getElementById('xselected').checked;
+                    var zSelected = document.getElementById('zselected').checked;
+
+                    if (planetSelected) {
+                        var string = document.getElementById('planetglyph').value;
+                        document.getElementById('planetglyph').value = string.slice(0,string.length - 1);
+                    }
+
+                    if (systemSelected) {
+                        var string = document.getElementById('systemglyphs').value;
+                        document.getElementById('systemglyphs').value = string.slice(0,string.length - 1);
+                    }
+
+                    if (ySelected) {
+                        var string = document.getElementById('yglyphs').value;
+                        document.getElementById('yglyphs').value = string.slice(0,string.length - 1);
+                    }
+
+                    if (xSelected) {
+                        var string = document.getElementById('xglyphs').value;
+                        document.getElementById('xglyphs').value = string.slice(0,string.length - 1);
+                    }
+
+                    if (zSelected) {
+                        var string = document.getElementById('zglyphs').value;
+                        document.getElementById('zglyphs').value = string.slice(0,string.length - 1);
+                    }
+                }
             } catch (error) {
                 console.error(error);
-            }
-            function toggleMenu() {
-                var menu = document.getElementById("menu");
-
-                menu.classList.toggle("hidden")
-            }
-
-            function insertGlyph(toinsert) {
-                var planetSelected = document.getElementById('planetselected').checked;
-                var systemSelected = document.getElementById('systemselected').checked;
-                var ySelected = document.getElementById('yselected').checked;
-                var xSelected = document.getElementById('xselected').checked;
-                var zSelected = document.getElementById('zselected').checked;
-
-                if (planetSelected) {
-                    document.getElementById('planetglyph').value = document.getElementById('planetglyph').value + toinsert;
-                    document.getElementById('planetglyph').value = document.getElementById('planetglyph').value.substring(0,1);
-                }
-
-                if (systemSelected) {
-                    document.getElementById('systemglyphs').value = document.getElementById('systemglyphs').value + toinsert;
-                    document.getElementById('systemglyphs').value = document.getElementById('systemglyphs').value.substring(0,3);
-                }
-
-                if (ySelected) {
-                    document.getElementById('yglyphs').value = document.getElementById('yglyphs').value + toinsert;
-                    document.getElementById('yglyphs').value = document.getElementById('yglyphs').value.substring(0,2);
-                }
-
-                if (xSelected) {
-                    document.getElementById('xglyphs').value = document.getElementById('xglyphs').value + toinsert;
-                    document.getElementById('xglyphs').value = document.getElementById('xglyphs').value.substring(0,3);
-                }
-
-                if (zSelected) {
-                    document.getElementById('zglyphs').value = document.getElementById('zglyphs').value + toinsert;
-                    document.getElementById('zglyphs').value = document.getElementById('zglyphs').value.substring(0,3);
-                }
-            }
-
-            function removeGlyph() {
-                var planetSelected = document.getElementById('planetselected').checked;
-                var systemSelected = document.getElementById('systemselected').checked;
-                var ySelected = document.getElementById('yselected').checked;
-                var xSelected = document.getElementById('xselected').checked;
-                var zSelected = document.getElementById('zselected').checked;
-
-                if (planetSelected) {
-                    var string = document.getElementById('planetglyph').value;
-                    document.getElementById('planetglyph').value = string.slice(0,string.length - 1);
-                }
-
-                if (systemSelected) {
-                    var string = document.getElementById('systemglyphs').value;
-                    document.getElementById('systemglyphs').value = string.slice(0,string.length - 1);
-                }
-
-                if (ySelected) {
-                    var string = document.getElementById('yglyphs').value;
-                    document.getElementById('yglyphs').value = string.slice(0,string.length - 1);
-                }
-
-                if (xSelected) {
-                    var string = document.getElementById('xglyphs').value;
-                    document.getElementById('xglyphs').value = string.slice(0,string.length - 1);
-                }
-
-                if (zSelected) {
-                    var string = document.getElementById('zglyphs').value;
-                    document.getElementById('zglyphs').value = string.slice(0,string.length - 1);
-                }
             }
         </script>
     
     </head>
     
     <body>
-        <nav>
-            <button onclick="toggleMenu()">Settings</button>
-        </nav>
+        <div id="everything"> 
+            <nav>
+                <div id="topbutts">
+                    <button onclick="toggleHelp()">Help</button>
+                </div>
+                <div id="bottombutts">
+                    <button onclick="toggleTheme()">Theme</button>
+                    <button onclick="toggleReadout()">Readout</button>
+                    <button onclick="toggleParams()">Parameters</button>
+                </div>
+            </nav>
+            <header>
+                <div class="container">
         
-        <header>
-            <div class="container">
-    
-                <h1>Portal Glyph Generator</h1>
-        
-            </div>
-        </header>
+                    <h1>Portal Glyph Generator</h1>
+            
+                </div>
+            </header>
 
-        <div id="glyphbuttcontainer">
-            <div id="glyphbuttons">
-                <div id="glyphbutt1">
-                    <button class="glyphbutt" onclick="insertGlyph('0')">0</button>
-                    <button class="glyphbutt" onclick="insertGlyph('4')">4</button>
-                    <button class="glyphbutt" onclick="insertGlyph('8')">8</button>
-                    <button class="glyphbutt" onclick="insertGlyph('C')">C</button>
+            <div id="glyphs">
+                <div id="glyphoutput">
+                    <h1 id="tochange">011122333444</h1>
                 </div>
-                <div id="glyphbutt2">
-                    <button class="glyphbutt" onclick="insertGlyph('1')">1</button>
-                    <button class="glyphbutt" onclick="insertGlyph('5')">5</button>
-                    <button class="glyphbutt" onclick="insertGlyph('9')">9</button>
-                    <button class="glyphbutt" onclick="insertGlyph('D')">D</button>
+                <div id="glyphtitle">
+                    <h1 id="gentitle">Glyph Output</h1>
                 </div>
-                <div id="glyphbutt3">
-                    <button class="glyphbutt" onclick="insertGlyph('2')">2</button>
-                    <button class="glyphbutt" onclick="insertGlyph('6')">6</button>
-                    <button class="glyphbutt" onclick="insertGlyph('A')">A</button>
-                    <button class="glyphbutt" onclick="insertGlyph('E')">E</button>
-                </div>
-                <div id="glyphbutt4">
-                    <button class="glyphbutt" onclick="insertGlyph('3')">3</button>
-                    <button class="glyphbutt" onclick="insertGlyph('7')">7</button>
-                    <button class="glyphbutt" onclick="insertGlyph('B')">B</button>
-                    <button class="glyphbutt" onclick="insertGlyph('F')">F</button>
+                <div id="buttons">
+                    <button class="generate">Generate Glyphs</button>
+                    <button class="generate">Clear Glyphs</button>
                 </div>
             </div>
-            <button class="deletebutt" onclick="removeGlyph()">Delete</button>
+            
+            <div id="help" class="help">
+                <div id="helpcontents">
+                    <p>
+                        test sentence.
+                    </p>
+                </div>
+            </div>
+
+            <div id="menu" class="hidden">
+                <div id="menucontents">
+                    <div id="glyphbuttcontainer">
+                        <div id="glyphbuttons">
+                            <div id="glyphbutt1">
+                                <button class="glyphbutt" onclick="insertGlyph('0')">0</button>
+                                <button class="glyphbutt" onclick="insertGlyph('4')">4</button>
+                                <button class="glyphbutt" onclick="insertGlyph('8')">8</button>
+                                <button class="glyphbutt" onclick="insertGlyph('C')">C</button>
+                            </div>
+                            <div id="glyphbutt2">
+                                <button class="glyphbutt" onclick="insertGlyph('1')">1</button>
+                                <button class="glyphbutt" onclick="insertGlyph('5')">5</button>
+                                <button class="glyphbutt" onclick="insertGlyph('9')">9</button>
+                                <button class="glyphbutt" onclick="insertGlyph('D')">D</button>
+                            </div>
+                            <div id="glyphbutt3">
+                                <button class="glyphbutt" onclick="insertGlyph('2')">2</button>
+                                <button class="glyphbutt" onclick="insertGlyph('6')">6</button>
+                                <button class="glyphbutt" onclick="insertGlyph('A')">A</button>
+                                <button class="glyphbutt" onclick="insertGlyph('E')">E</button>
+                            </div>
+                            <div id="glyphbutt4">
+                                <button class="glyphbutt" onclick="insertGlyph('3')">3</button>
+                                <button class="glyphbutt" onclick="insertGlyph('7')">7</button>
+                                <button class="glyphbutt" onclick="insertGlyph('B')">B</button>
+                                <button class="glyphbutt" onclick="insertGlyph('F')">F</button>
+                            </div>
+                        </div>
+                        <button class="deletebutt" onclick="removeGlyph()">Delete</button>
+                    </div>
+                    <div id="parametertitle">
+                        <h1 id="gentitle">Parameters</h1>
+                        <div id="parameters">
+                            <div id="planetparameter" class="parameterbox">
+                                <h4 class="parametertitle">Planet Glyph</h4>
+                                <input id="planetglyph" class="parameterinput" type="text" maxlength="1">
+                                <input type="radio" id="planetselected" class="parameterselection" name="parameterselection">
+                            </div>
+                            <div id="systemparameter" class="parameterbox">
+                                <h4 class="parametertitle">System Glyphs</h4>
+                                <input id="systemglyphs" class="parameterinput" type="text" maxlength="3">
+                                <input type="radio" id="systemselected" class="parameterselection" name="parameterselection">
+                            </div>
+                            <div id="yparameter" class="parameterbox">
+                                <h4 class="parametertitle">Y Glyphs</h4>
+                                <input id="yglyphs" class="parameterinput" type="text" maxlength="2">
+                                <input type="radio" id="yselected" class="parameterselection" name="parameterselection">
+                            </div>
+                            <div id="xparameter" class="parameterbox">
+                                <h4 class="parametertitle">X Glyphs</h4>
+                                <input id="xglyphs" class="parameterinput" type="text" maxlength="3">
+                                <input type="radio" id="xselected" class="parameterselection" name="parameterselection">
+                            </div>
+                            <div id="zparameter" class="parameterbox">
+                                <h4 class="parametertitle">Z Glyphs</h4>
+                                <input id="zglyphs" class="parameterinput" type="text" maxlength="3">
+                                <input type="radio" id="zselected" class="parameterselection" name="parameterselection">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <h6>A Tool Made By NerdMachine<br><br>Also Known as Wieder or Noktu</h6>
+            </footer>
         </div>
-    
-        <div id="parametertitle">
-            <h1 id="gentitle">Parameters</h1>
-            <div id="parameters">
-                <div id="planetparameter" class="parameterbox">
-                    <h4 class="parametertitle">Planet Glyph</h4>
-                    <input id="planetglyph" class="parameterinput" type="text" maxlength="1">
-                    <input type="radio" id="planetselected" class="parameterselection" name="parameterselection">
-                </div>
-                <div id="systemparameter" class="parameterbox">
-                    <h4 class="parametertitle">System Glyphs</h4>
-                    <input id="systemglyphs" class="parameterinput" type="text" maxlength="3">
-                    <input type="radio" id="systemselected" class="parameterselection" name="parameterselection">
-                </div>
-                <div id="yparameter" class="parameterbox">
-                    <h4 class="parametertitle">Y Glyphs</h4>
-                    <input id="yglyphs" class="parameterinput" type="text" maxlength="2">
-                    <input type="radio" id="yselected" class="parameterselection" name="parameterselection">
-                </div>
-                <div id="xparameter" class="parameterbox">
-                    <h4 class="parametertitle">X Glyphs</h4>
-                    <input id="xglyphs" class="parameterinput" type="text" maxlength="3">
-                    <input type="radio" id="xselected" class="parameterselection" name="parameterselection">
-                </div>
-                <div id="zparameter" class="parameterbox">
-                    <h4 class="parametertitle">Z Glyphs</h4>
-                    <input id="zglyphs" class="parameterinput" type="text" maxlength="3">
-                    <input type="radio" id="zselected" class="parameterselection" name="parameterselection">
-                </div>
-            </div>
-        </div>
-
-        <div id="glyphs">
-            <div id="glyphoutput">
-                <h1 id="tochange">011122333444</h1>
-            </div>
-            <div id="glyphtitle">
-                <h1 id="gentitle">Glyph Output</h1>
-            </div>
-            <div id="buttons">
-                <button class="generate">Generate Glyphs</button>
-                <button class="generate">Clear Glyphs</button>
-            </div>
-        </div>
-        
-        <div id="menu" class="hidden">
-            <div id="menucontents">
-                <h3>Theme</h3>
-                <input type="radio" name="theme">light</input>
-                <input type="radio" name="theme">dark</input>
-                <input type="radio" name="theme">black</input>
-
-                <h3>Glyph Readout</h3>
-                <input type="radio" name="inputtype">glyphs</input>
-                <input type="radio" name="inputtype">hex</input>
-
-                <h3>Parameters Visible</h3>
-                <input type="radio" name="paramvis">true</input>
-                <input type="radio" name="paramvis">false</input>
-            </div>
-        </div>
-
-        <footer>
-            <h6>A Tool Made By NerdMachine<br><br>Also Known as Wieder or Noktu</h6>
-        </footer>
-
     </body>
 </html>
